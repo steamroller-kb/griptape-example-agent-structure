@@ -4,6 +4,7 @@ import sys
 from griptape.drivers import GriptapeCloudEventListenerDriver
 from griptape.events import EventBus, EventListener
 from griptape.structures import Agent
+from griptape.tools import DateTimeTool
 
 def setup_cloud_listener():
     # Are we running in a managed environment?
@@ -25,4 +26,4 @@ if __name__ == "__main__":
     setup_cloud_listener()
     args = sys.argv[1:]
 
-    Agent().run(*args)
+    Agent(tools=[DateTimeTool()]).run(*args)
